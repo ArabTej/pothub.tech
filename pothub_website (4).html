@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pot Hub Where Ideas Simmer Into Ventures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --secondary: #0F4C4C;
+            --light: #F5F0E6;
+            --white: #ffffff;
+            --dark: #1a1a1a;
+            --teal-light: #1a6b6b;
+            --teal-accent: #2DB5A5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 76, 76, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-graphic {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-graphic .node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--teal-accent);
+        }
+
+        .logo-graphic .node:nth-child(1) { top: 0; left: 0; }
+        .logo-graphic .node:nth-child(2) { top: 0; right: 0; }
+        .logo-graphic .node:nth-child(3) { bottom: 0; left: 0; }
+        .logo-graphic .node:nth-child(4) { bottom: 0; right: 0; }
+        .logo-graphic .node-center {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo-graphic .line {
+            position: absolute;
+            background: var(--white);
+            height: 2px;
+            transform-origin: left center;
+        }
+
+        .logo-graphic .line:nth-child(6) {
+            width: 35px;
+            top: 6px;
+            left: 6px;
+            transform: rotate(45deg);
+        }
+
+        .logo-graphic .line:nth-child(7) {
+            width: 35px;
+            bottom: 6px;
+            left: 6px;
+            transform: rotate(-45deg);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .logo-text .tag {
+            font-size: 0.75rem;
+            color: var(--teal-accent);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--teal-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(45, 181, 165, 0.08);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-logo {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-logo .big-logo {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo .big-logo .node {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--teal-accent);
+        }
+
+        .hero-logo .big-logo .node:nth-child(1) { top: 0; left: 0; }
+        .hero-logo .big-logo .node:nth-child(2) { top: 0; right: 0; }
+        .hero-logo .big-logo .node:nth-child(3) { bottom: 0; left: 0; }
+        .hero-logo .big-logo .node:nth-child(4) { bottom: 0; right: 0; }
+        .hero-logo .big-logo .node-center {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hero-logo .big-logo .line {
+            position: absolute;
+            background: var(--white);
+            height: 2px;
+            transform-origin: left center;
+        }
+
+        .hero-logo .big-logo .line:nth-child(6) {
+            width: 56px;
+            top: 9px;
+            left: 9px;
+            transform: rotate(45deg);
+        }
+
+        .hero-logo .big-logo .line:nth-child(7) {
+            width: 56px;
+            bottom: 9px;
+            left: 9px;
+            transform: rotate(-45deg);
+        }
+
+        .hero-logo h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .hero-logo .subtitle {
+            font-size: 1.1rem;
+            color: var(--teal-accent);
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: rgba(245, 240, 230, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(245, 240, 230, 0.75);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid rgba(245, 240, 230, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin:0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin:0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(15, 76, 76, 0.1);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(15, 76, 76, 0.15);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--secondary);
+            padding: 5rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: rgba(245, 240, 230, 0.7);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Instructors Section */
+        .instructors {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instructor-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(15, 76, 76, 0.08);
+        }
+
+        .instructor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(15, 76, 76, 0.12);
+        }
+
+        .instructor-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .instructor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .instructor-avatar.initials {
+            background: linear-gradient(135deg, var(--secondary), var(--teal-accent));
+            color: var(--white);
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .instructor-card:hover .instructor-avatar {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .instructor-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .instructor-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-bio {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .instructor-social {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .instructor-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(15, 76, 76, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .instructor-social a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 5%;
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(15, 76, 76, 0.08);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15, 76, 76, 0.12);
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--teal-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-info p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .testimonial-stars {
+            color: var(--primary);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-feature i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .about-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-visual .logo-showcase {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, var(--secondary), var(--teal-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .about-visual .logo-showcase-inner {
+            width: 250px;
+            height: 250px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            gap: 0.5rem;
+        }
+
+        .about-visual .logo-showcase-inner .node-graphic {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-visual .logo-showcase-inner .node-graphic .node {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--teal-accent);
+        }
+
+        .about-visual .logo-showcase-inner .node-graphic .node:nth-child(1) { top: 0; left: 0; }
+        .about-visual .logo-showcase-inner .node-graphic .node:nth-child(2) { top: 0; right: 0; }
+        .about-visual .logo-showcase-inner .node-graphic .node:nth-child(3) { bottom: 0; left: 0; }
+        .about-visual .logo-showcase-inner .node-graphic .node:nth-child(4) { bottom: 0; right: 0; }
+        .about-visual .logo-showcase-inner .node-graphic .node-center {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .about-visual .logo-showcase-inner .node-graphic .line {
+            position: absolute;
+            background: var(--secondary);
+            height: 2px;
+            transform-origin: left center;
+        }
+
+        .about-visual .logo-showcase-inner .node-graphic .line:nth-child(6) {
+            width: 42px;
+            top: 7px;
+            left: 7px;
+            transform: rotate(45deg);
+        }
+
+        .about-visual .logo-showcase-inner .node-graphic .line:nth-child(7) {
+            width: 42px;
+            bottom: 7px;
+            left: 7px;
+            transform: rotate(-45deg);
+        }
+
+        .about-visual .logo-showcase-inner h3 {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .about-visual .logo-showcase-inner .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--teal-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 107, 53, 0.08);
+            border-radius: 50%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-card p {
+            color: rgba(245, 240, 230, 0.8);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--white);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 5%;
+            background: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            font-size: 1.1rem;
+            padding: 1.2rem 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a2e2e;
+            color: rgba(245, 240, 230, 0.7);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand .footer-logo .node-graphic {
+            position: relative;
+            width: 35px;
+            height: 35px;
+        }
+
+        .footer-brand .footer-logo .node-graphic .node {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal-accent);
+        }
+
+        .footer-brand .footer-logo .node-graphic .node:nth-child(1) { top: 0; left: 0; }
+        .footer-brand .footer-logo .node-graphic .node:nth-child(2) { top: 0; right: 0; }
+        .footer-brand .footer-logo .node-graphic .node:nth-child(3) { bottom: 0; left: 0; }
+        .footer-brand .footer-logo .node-graphic .node:nth-child(4) { bottom: 0; right: 0; }
+        .footer-brand .footer-logo .node-graphic .node-center {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .footer-brand .footer-logo .node-graphic .line {
+            position: absolute;
+            background: var(--white);
+            height: 1.5px;
+            transform-origin: left center;
+        }
+
+        .footer-brand .footer-logo .node-graphic .line:nth-child(6) {
+            width: 24px;
+            top: 4px;
+            left: 4px;
+            transform: rotate(45deg);
+        }
+
+        .footer-brand .footer-logo .node-graphic .line:nth-child(7) {
+            width: 24px;
+            bottom: 4px;
+            left: 4px;
+            transform: rotate(-45deg);
+        }
+
+        .footer-brand .footer-logo h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--teal-accent);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(245, 240, 230, 0.7);
+        }
+
+        .footer-contact-item i {
+            color: var(--primary);
+            width: 18px;
+        }
+
+        .footer-contact-item a {
+            color: rgba(245, 240, 230, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: rgba(245, 240, 230, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245, 240, 230, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-visual .logo-showcase {
+                width: 280px;
+                height: 280px;
+            }
+
+            .about-visual .logo-showcase-inner {
+                width: 200px;
+                height: 200px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand .footer-logo {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-contact {
+                align-items: center;
+            }
+
+            .hero-logo h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-graphic">
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node-center"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="logo-text">
+                <span class="name">Pot Hub</span>
+                <span class="tag">startup & tech hub</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#instructors">Instructors</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="big-logo">
+                    <div class="node"></div>
+                    <div class="node"></div>
+                    <div class="node"></div>
+                    <div class="node"></div>
+                    <div class="node-center"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <h1>Pot Hub</h1>
+                <span class="subtitle">startup & tech hub</span>
+            </div>
+            <p class="hero-tagline">"Where ideas simmer into ventures"</p>
+            <p>Your premier destination for cutting-edge technology training. From frontend development to AI agents, we equip you with the skills to thrive in the digital age.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">
+                    Explore Services <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header fade-in">
+            <h2>Our Services</h2>
+            <p>Comprehensive training programs designed to take you from beginner to expert in the most in-demand tech fields.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Frontend Development Training</h3>
+                <p>Master HTML, CSS, JavaScript, React, Vue, and modern frontend frameworks. Build responsive, interactive web applications that users love.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Backend Development Training</h3>
+                <p>Learn Node.js, Python, databases, APIs, and server architecture. Build robust, scalable backend systems that power modern applications.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <h3>Data Analytics using Python</h3>
+                <p>Harness the power of Python for data analysis. Learn Pandas, NumPy, Matplotlib, and transform raw data into actionable insights.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Data Science</h3>
+                <p>Dive deep into machine learning, statistical modeling, and predictive analytics. Build intelligent systems that learn from data.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI Agent</h3>
+                <p>Explore the frontier of artificial intelligence. Learn to build autonomous AI agents, LLM integrations, and intelligent automation systems.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Application Development</h3>
+                <p>Build cross-platform mobile apps with React Native and Flutter. Create stunning iOS and Android applications from a single codebase.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Computing</h3>
+                <p>Master AWS, Azure, and Google Cloud. Learn cloud architecture, serverless computing, containerization with Docker & Kubernetes, and DevOps practices.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <h3>500+</h3>
+                <p>Students Trained</p>
+            </div>
+            <div class="stat-item fade-in">
+                <h3>2+</h3>
+                <p>Expert Instructors</p>
+            </div>
+            <div class="stat-item fade-in">
+                <h3>95%</h3>
+                <p>Success Rate</p>
+            </div>
+            <div class="stat-item fade-in">
+                <h3>7</h3>
+                <p>Core Services</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="instructors" id="instructors">
+        <div class="section-header fade-in">
+            <h2>Meet Our Instructors</h2>
+            <p>Learn from industry veterans who have built and shipped products at leading tech companies.</p>
+        </div>
+        <div class="instructors-grid">
+            <div class="instructor-card fade-in">
+                <div class="instructor-avatar">
+                    <img src="aji.jpeg" alt="Ajiboye Ismail Kolawole">
+                </div>
+                <h3>Ajiboye Ismail Kolawole</h3>
+                <p class="instructor-role">Lead Data Scientist & AI Researcher</p>
+                <p class="instructor-bio">Renowned researcher with expertise in machine learning, deep learning, and neural networks. PhD in Computer Science. Passionate about mentoring the next generation of data scientists.</p>
+                <div class="instructor-social">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="instructor-card fade-in">
+                     <div class="instructor-avatar">
+                    <img src="tej.jpeg" alt="ARABA TEJUMOLA AKINRIBIGBE">
+                </div>   
+                <h3>ARABA TEJUMOLA AKINRIBIGBE</h3>
+                <p class="instructor-role">Full Stack Developer</p>
+                <p class="instructor-bio">Ex-Meta engineer who led the React team. 8 years building consumer facing apps used by millions. Passionate about performance and accessibility.</p>
+                <div class="instructor-social">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header fade-in">
+            <h2>Student Testimonials</h2>
+            <p>Hear from our graduates who transformed their careers through Pot Hub training programs.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The Frontend Development course completely changed my career trajectory. Within three months of completing the program, I landed my dream job as a React developer at a top tech company.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">OA</div>
+                    <div class="testimonial-info">
+                        <h4>Oluwaseun Adeyemi</h4>
+                        <p>Frontend Developer at TechNova</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">I came into the Data Science program with zero coding experience. The instructors were patient, the curriculum was practical, and now I am building machine learning models for a fintech startup.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">CN</div>
+                    <div class="testimonial-info">
+                        <h4>Chioma Nwosu</h4>
+                        <p>Data Scientist at PayStack</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The Mobile App Development training was exceptional. I learned React Native and Flutter, and I have already published two apps on the Play Store and App Store. Pot Hub truly delivers.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">IB</div>
+                    <div class="testimonial-info">
+                        <h4>Ibrahim Bello</h4>
+                        <p>Mobile App Developer, Freelance</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Pot Hub's Backend Development course gave me the confidence to architect complex systems. The hands on projects and mentorship were invaluable in preparing me for real-world challenges.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">FO</div>
+                    <div class="testimonial-info">
+                        <h4>Fatima Okafor</h4>
+                        <p>Backend Engineer at Andela</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The AI Agent course opened my eyes to the future of technology. I now build intelligent automation tools for enterprise clients. The ROI on this training has been incredible.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">DK</div>
+                    <div class="testimonial-info">
+                        <h4>David Koffi</h4>
+                        <p>AI Solutions Architect</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">From data analytics novice to Python expert in just 12 weeks. Pot Hub's structured approach and supportive community made all the difference. I highly recommend them to anyone serious about tech.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AM</div>
+                    <div class="testimonial-info">
+                        <h4>Amina Mohammed</h4>
+                        <p>Data Analyst at Flutterwave</p>
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <h2>Why Choose Pot Hub?</h2>
+                <p>At Pot Hub, we believe in practical, hands-on learning. Our curriculum is designed by industry experts who understand what employers are looking for. We don't just teach theory we build real projects.</p>
+                <p>Whether you're starting your tech journey or looking to up skill, our structured programs guide you every step of the way. Join a community of learners who are passionate about technology.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Industry-relevant curriculum</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Hands-on project-based learning</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Expert mentorship & support</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Career guidance & placement</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual fade-in">
+                <div class="logo-showcase">
+                    <div class="logo-showcase-inner">
+                        <div class="node-graphic">
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node-center"></div>
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                        <h3>Pot Hub</h3>
+                        <span class="tagline">"Where ideas simmer into ventures"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header fade-in" style="margin-bottom: 3rem;">
+            <h2 style="color: var(--white);">Get In Touch</h2>
+            <p style="color: rgba(245, 240, 230, 0.8);">Ready to start your tech journey? Reach out to us today.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p><a href="mailto:ifo@pothub.com">ifo@pothub.com</a></p>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Visit Us</h3>
+                <p>Iresa-Apa, Ogbomoso<br>Oyo State, Nigeria</p>
+            </div>
+
+            <div class="contact-card fade-in">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>Call Us</h3>
+                <p><a href="tel:+2348000000000">+234 800 000 0000</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2 class="fade-in">Ready to Start Your Tech Journey?</h2>
+        <p class="fade-in">Join Pot Hub today and transform your career with in-demand tech skills.</p>
+        <div class="fade-in">
+            <a href="mailto:ifo@pothub.com" class="btn btn-primary">
+                Enroll Now <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="node-graphic">
+                        <div class="node"></div>
+                        <div class="node"></div>
+                        <div class="node"></div>
+                        <div class="node"></div>
+                        <div class="node-center"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <h3>Pot Hub</h3>
+                </div>
+                <p class="footer-tagline">"Where ideas simmer into ventures"</p>
+                <p>Empowering the next generation of tech professionals with world class training and mentorship.</p>
+                <div class="footer-contact">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:ifo@pothub.com">ifo@pothub.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Iresa-Apa, Ogbomoso, Oyo State</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Frontend Dev</a></li>
+                    <li><a href="#">Backend Dev</a></li>
+                    <li><a href="#">Data Analytics</a></li>
+                    <li><a href="#">Data Science</a></li>
+                    <li><a href="#">AI Agent</a></li>
+                    <li><a href="#">Mobile App Dev</a></li>
+                    <li><a href="#">Cloud Computing</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pot Hub. All rights reserved. Where ideas simmer into ventures.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.8rem 5%';
+                navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '1rem 5%';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
