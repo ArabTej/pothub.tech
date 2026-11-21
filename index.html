@@ -494,116 +494,6 @@
             font-weight: 500;
         }
 
-        /* Instructors Section */
-        .instructors {
-            padding: 6rem 5%;
-            background: var(--white);
-        }
-
-        .instructors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .instructor-card {
-            background: var(--light);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(15, 76, 76, 0.08);
-        }
-
-        .instructor-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(15, 76, 76, 0.12);
-        }
-
-        .instructor-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            overflow: hidden;
-            position: relative;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .instructor-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .instructor-avatar.initials {
-            background: linear-gradient(135deg, var(--secondary), var(--teal-accent));
-            color: var(--white);
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
-
-        .instructor-card:hover .instructor-avatar {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        .instructor-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 0.3rem;
-        }
-
-        .instructor-role {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .instructor-bio {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .instructor-social {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-        }
-
-        .instructor-social a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(15, 76, 76, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .instructor-social a:hover {
-            background: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
         /* Testimonials Section */
         .testimonials {
             padding: 6rem 5%;
@@ -1212,7 +1102,6 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#instructors">Instructors</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1331,53 +1220,12 @@
                 <p>Students Trained</p>
             </div>
             <div class="stat-item fade-in">
-                <h3>2+</h3>
-                <p>Expert Instructors</p>
-            </div>
-            <div class="stat-item fade-in">
                 <h3>95%</h3>
                 <p>Success Rate</p>
             </div>
             <div class="stat-item fade-in">
                 <h3>7</h3>
                 <p>Core Services</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instructors Section -->
-    <section class="instructors" id="instructors">
-        <div class="section-header fade-in">
-            <h2>Meet Our Instructors</h2>
-            <p>Learn from industry veterans who have built and shipped products at leading tech companies.</p>
-        </div>
-        <div class="instructors-grid">
-            <div class="instructor-card fade-in">
-                <div class="instructor-avatar">
-                    <img src="aji.jpeg" alt="Ajiboye Ismail Kolawole">
-                </div>
-                <h3>Ajiboye Ismail Kolawole</h3>
-                <p class="instructor-role">Lead Data Scientist & AI Researcher</p>
-                <p class="instructor-bio">Renowned researcher with expertise in machine learning, deep learning, and neural networks. PhD in Computer Science. Passionate about mentoring the next generation of data scientists.</p>
-                <div class="instructor-social">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="instructor-card fade-in">
-                     <div class="instructor-avatar">
-                    <img src="tej.jpeg" alt="ARABA TEJUMOLA AKINRIBIGBE">
-                </div>   
-                <h3>ARABA TEJUMOLA AKINRIBIGBE</h3>
-                <p class="instructor-role">Full Stack Developer</p>
-                <p class="instructor-bio">Ex-Meta engineer who led the React team. 8 years building consumer facing apps used by millions. Passionate about performance and accessibility.</p>
-                <div class="instructor-social">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                </div>
             </div>
         </div>
     </section>
@@ -1410,7 +1258,7 @@
 
             <div class="testimonial-card fade-in">
                 <div class="testimonial-quote">"</div>
-                <p class="testimonial-text">I came into the Data Science program with zero coding experience. The instructors were patient, the curriculum was practical, and now I am building machine learning models for a fintech startup.</p>
+                <p class="testimonial-text">I came into the Data Science program with zero coding experience. The curriculum was practical and supportive, and now I am building machine learning models for a fintech startup.</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">CN</div>
                     <div class="testimonial-info">
